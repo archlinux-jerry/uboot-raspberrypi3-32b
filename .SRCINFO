@@ -1,0 +1,24 @@
+pkgbase = uboot-raspberrypi3-32b
+	pkgdesc = U-Boot for Raspberry Pi 3 armv7h
+	pkgver = 2018.07
+	pkgrel = 1
+	url = http://www.denx.de/wiki/U-Boot/WebHome
+	arch = armv7h
+	license = GPL
+	makedepends = bc
+	makedepends = dtc
+	makedepends = git
+	optdepends = linux-raspberrypi: kernel for 32bit uboot
+	conflicts = uboot-raspberrypi
+	backup = boot/boot.txt
+	backup = boot/boot.scr
+	backup = boot/config.txt
+	source = ftp://ftp.denx.de/pub/u-boot/u-boot-2018.07.tar.bz2
+	source = boot.txt.v3
+	source = mkscr
+	md5sums = 2b8eaa30dd118b29889669070da22bb0
+	md5sums = be8abe44b86d63428d7ac3acc64ee3bf
+	md5sums = 021623a04afd29ac3f368977140cfbfd
+
+pkgname = uboot-raspberrypi3-32b
+
