@@ -5,15 +5,16 @@ buildarch=12
 
 pkgname=uboot-raspberrypi3-32b
 pkgver=2018.07
-pkgrel=1
+pkgrel=2
 pkgdesc="U-Boot for Raspberry Pi 3 armv7h"
 arch=('armv7h')
 url='http://www.denx.de/wiki/U-Boot/WebHome'
 license=('GPL')
-backup=('boot/boot.txt' 'boot/boot.scr' 'boot/config.txt')
+backup=('boot/boot.txt' 'boot/boot.scr' 'boot/config.txt.7')
 makedepends=('bc' 'dtc' 'git')
 optdepends=('linux-raspberrypi: kernel for 32bit uboot')
 conflicts=('uboot-raspberrypi')
+install=${pkgname}.install
 source=("ftp://ftp.denx.de/pub/u-boot/u-boot-${pkgver/rc/-rc}.tar.bz2"
         'boot.txt.v3'
         'mkscr')
@@ -41,7 +42,7 @@ package() {
 
   cp u-boot.bin ${pkgdir}/boot/u-boot.img
   cp ../boot.txt.v3 ../boot.txt
-  echo -e "kernel=u-boot.img\nenable_uart=1\nforce_turbo=1" > ${pkgdir}/boot/config.txt
+  echo -e "kernel=u-boot.img\nenable_uart=1\nforce_turbo=1" > ${pkgdir}/boot/config.txt.7
 
   tools/mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d ../boot.txt "${pkgdir}"/boot/boot.scr
   cp ../{boot.txt,mkscr} "${pkgdir}"/boot

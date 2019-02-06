@@ -1,0 +1,4 @@
+post_install () {
+  echo -n "INFO: a new /boot/config.txt.7 has been installed. "
+  echo "You should consider merging the changes manually."
+}
